@@ -5,3 +5,7 @@ function show($stu)
 	print_r($stu);
 	echo "</pre>";
 }
+function esc($str)
+{
+	return htmlspecialchars($str);
+}

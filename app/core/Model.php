@@ -68,6 +68,15 @@ Trait Model {
 
       public function insert($data)
       {
+        /** removeunwanted data **/
+        if(!empty($this->allowedColumns))
+        {
+            foreach ($data as $key =>$value){
+                if(!in_array($key, $this->allowedCOlumns)){
+                    unset($data[$key]);
+                }
+            }
+        }
       	$keys=array_keys($data);
 
       	 $query = "insert into $this->table (".implode(",",$keys).") values(:".implode(",:",$keys).") ";
@@ -80,6 +89,15 @@ Trait Model {
        public function update($id, $data,$id_column='id' )
 
       {
+        /** removeunwanted data **/
+        if(!empty($this->allowedColumns))
+        {
+            foreach ($data as $key =>$value){
+                if(!in_array($key, $this->allowedCOlumns)){
+                    unset($data[$key]);
+                }
+            }
+        }
       $query = "update  $this->table set  "; 
     $keys = array_keys($data);
   

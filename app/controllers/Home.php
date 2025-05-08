@@ -1,21 +1,17 @@
 <?php
 
-
-class Home extends Controller
+//home page...
+class Home 
 {
 
-  public function index($a = '', $b = '', $c = '')
-{
-    $user = new User;
-//     $data = [
-//     'name' => 'shruti',
-//     'age' => 14
-// ];
-$result=$user->findAll(); 
+   use Controller;
 
-    show($result);
+  public function index()
+{
+
     $this->view('home');
 }
+
 
 
 }
